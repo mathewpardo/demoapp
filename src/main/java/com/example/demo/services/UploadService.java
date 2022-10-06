@@ -20,18 +20,19 @@ public class UploadService {
     private String folder="uploads//";
     private final Logger logg = LoggerFactory.getLogger(UploadService.class);
 
-    public String save(MultipartFile file) {
+    public MultipartFile save(MultipartFile file) {
         if (!file.isEmpty()){
             try {
                 byte [] bytes = file.getBytes();
                 Path path = Paths.get(folder+file.getOriginalFilename());
                 Files.write(path, bytes);
                 logg.info("Archivo guardado");
+                return file;
             } catch (IOException e) {
                 System.err.println(e.getMessage());
             }
         }
-        return "Archivo guardado correctamente";
+        return null;
     }
 
 }

@@ -18,8 +18,7 @@ public class UploadServiceTest {
     void importarArchivoConContenidodeNombreDATOStxt() {
         String contenido = "2022/10/03;08:00;12.345.678-2";
         MockMultipartFile file = new MockMultipartFile("DATOS", "DATOS.TXT", "text/plain", "2022/10/03;08:00;20.580.291-6".getBytes());
-        //MultipartFile filefinal=
-        uploadService.save(file);
-        //Assertions.assertEquals(file, filefinal);
+        MultipartFile filefinal=uploadService.save(file);
+        Assertions.assertEquals(file, filefinal);
     }
 }
